@@ -70,7 +70,7 @@ public class AuditeurCNAMTest extends junit.framework.TestCase {
                 "paul", "03-1234");
         assertEquals("Dupont paul login : dupont_p", auditeur1.toString());
     }
-
+    /** Un test d'un nom court. */
     public void test_nom_court() {
         question3.AuditeurCNAM auditeur1 = new question3.AuditeurCNAM("paul",
                 "pierre", "12345");
@@ -78,7 +78,7 @@ public class AuditeurCNAMTest extends junit.framework.TestCase {
         assertEquals("pierre", auditeur1.prenom());
         assertEquals("paul_p", auditeur1.login());
     }
-
+    /** Un test d'un autre nom court. */
     public void test_nom_court_bis() {
         question3.AuditeurCNAM auditeur1 = new question3.AuditeurCNAM("thon",
                 "germon", "12345");
@@ -86,7 +86,7 @@ public class AuditeurCNAMTest extends junit.framework.TestCase {
         assertEquals("Mr thon germon", "germon", auditeur1.prenom());
         assertEquals("Mr thon germon", "thon_g", auditeur1.login());
     }
-
+    /** Un test du nom avec matricule. */
     public void test_nom_avec_particule() {
         question3.AuditeurCNAM auditeur1 = new question3.AuditeurCNAM(
                 "le Thon", "alban", "12345");
@@ -95,7 +95,7 @@ public class AuditeurCNAMTest extends junit.framework.TestCase {
         assertEquals(" matricule ?", "12345", auditeur1.matricule());
         assertEquals(" login ? ", "le_tho_a", auditeur1.login());
     }
-
+    /** Un test d'un nom compose. */
     public void test_nom_compose() {
         question3.AuditeurCNAM auditeur1 = new question3.AuditeurCNAM(
                 "Ton-Ton", "max", "12345");
@@ -103,7 +103,7 @@ public class AuditeurCNAMTest extends junit.framework.TestCase {
         assertEquals("Mr Ton-Ton max ", "max", auditeur1.prenom());
         assertEquals("Mr Ton-Ton max ", "ton_to_m", auditeur1.login());
     }
-
+    /** Un test d'un nom court avec une particule. */
     public void test_nom_court_avec_particule() {
 
         question3.AuditeurCNAM auditeur1 = new question3.AuditeurCNAM("Te-Te",
@@ -113,7 +113,7 @@ public class AuditeurCNAMTest extends junit.framework.TestCase {
         assertEquals("nom court avec particules ? ", "te_te_m",
             auditeur1.login());
     }
-
+    /** Un test d'un nom court avec un accent. */
     public void test_nom_avec_accent() {
         question3.AuditeurCNAM auditeur1 = new question3.AuditeurCNAM("Chloé",
                 "chloé", "12345");
@@ -122,4 +122,11 @@ public class AuditeurCNAMTest extends junit.framework.TestCase {
         assertEquals(" nom avec accent (é devient e) ? ", "chloe_c",
             auditeur1.login());
     }
+    /** Un test de la longueur d'un login. */
+    public void test_longueur_login(){
+        question3.AuditeurCNAM auditeur1 = new question3.AuditeurCNAM("a",
+                "b", "c");
+        assertEquals("longueur du login ", 3, auditeur1.login().length());
+    }
 }
+

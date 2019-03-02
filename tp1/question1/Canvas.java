@@ -2,7 +2,6 @@ package question1;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.List;
 import java.util.*;
 
 /**
@@ -20,11 +19,14 @@ public class Canvas {
     // shape identity and colors) is slightly more complex than necessary. This
     // is done on purpose to keep the interface and instance fields of the
     // shape objects in this project clean and simple for educational purposes.
-
+    /**
+     * canvasSingleton static attribute.
+     */
     private static Canvas canvasSingleton;
 
     /**
      * Factory method to get the canvas singleton object.
+     * @return Canvas
      */
     public static Canvas getCanvas() {
         if (canvasSingleton == null) {
@@ -35,13 +37,19 @@ public class Canvas {
     }
 
     // ----- instance part -----
-
+    /** frame attribute. */
     private JFrame frame;
+    /** canvas attribute. */
     private CanvasPane canvas;
+    /** graphic attribute. */
     private Graphics2D graphic;
+    /** backgroundColor attribute. */
     private Color backgroundColour;
+    /** canvasImage attribute. */
     private Image canvasImage;
-    private List<Object> objects;
+    /** objects attribute. */
+    private java.util.List<Object> objects;
+    /** shapes attribute. */
     private HashMap<Object, ShapeDescription> shapes;
 
     /**
@@ -53,7 +61,7 @@ public class Canvas {
      *            the desired width for the canvas
      * @param height
      *            the desired height for the canvas
-     * @param bgClour
+     * @param bgColour
      *            the desired background colour of the canvas
      */
     private Canvas(String title, int width, int height, Color bgColour) {
@@ -126,18 +134,18 @@ public class Canvas {
     /**
      * Set the foreground colour of the Canvas.
      * 
-     * @param newColour
+     * @param colorString
      *            the new colour for the foreground of the Canvas
      */
     public void setForegroundColor(String colorString) {
-        if (colorString.equals("red")) graphic.setColor(Color.red);
-        else if (colorString.equals("black")) graphic.setColor(Color.black);
-        else if (colorString.equals("blue"))  graphic.setColor(Color.blue);
-        else if (colorString.equals("yellow")) graphic.setColor(Color.yellow);
-        else if (colorString.equals("green")) graphic.setColor(Color.green);
-        else if (colorString.equals("magenta")) graphic.setColor(Color.magenta);
-        else if (colorString.equals("white")) graphic.setColor(Color.white);
-        else graphic.setColor(Color.black);
+        if (colorString.equals("red")) {graphic.setColor(Color.red);}
+        else if (colorString.equals("black")) {graphic.setColor(Color.black);}
+        else if (colorString.equals("blue"))  {graphic.setColor(Color.blue);}
+        else if (colorString.equals("yellow")) {graphic.setColor(Color.yellow);}
+        else if (colorString.equals("green")) {graphic.setColor(Color.green);}
+        else if (colorString.equals("magenta")) {graphic.setColor(Color.magenta);}
+        else if (colorString.equals("white")) {graphic.setColor(Color.white);}
+        else {graphic.setColor(Color.black);}
     }
 
     /**
@@ -152,12 +160,12 @@ public class Canvas {
         try {
             Thread.sleep(milliseconds);
         } catch (Exception e) {
-            // ignoring exception at the moment
+            System.out.println("An error occured");
         }
     }
 
     /**
-     * Redraw ell shapes currently on the Canvas.
+     * Redraw all shapes currently on the Canvas.
      */
     private void redraw() {
         erase();
@@ -184,6 +192,10 @@ public class Canvas {
      * refresh the image drawn on it.
      */
     private class CanvasPane extends JPanel {
+        /**
+         * paint method.
+         * @param g : Graphics
+         */
         public void paint(Graphics g) {
             g.drawImage(canvasImage, 0, 0, null);
         }
@@ -195,13 +207,24 @@ public class Canvas {
      * refresh the image drawn on it.
      */
     private class ShapeDescription {
+        /** shape attribute. */
         private Shape shape;
+        /** colorString attribute. */
         private String colorString;
-
+        
+        /**
+         * Constructor.
+         * @param shape of type Shape.
+         * @param color of type String.
+         */
         public ShapeDescription(Shape shape, String color) {
             this.shape = shape;
             colorString = color;
         }
+        /**
+         * draw method.
+         * @param graphic of type Graphics2D
+         */
 
         public void draw(Graphics2D graphic) {
             setForegroundColor(colorString);

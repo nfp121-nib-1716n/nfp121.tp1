@@ -10,10 +10,15 @@ import java.awt.*;
  */
 
 public class Square {
+    /** size attribute. */
     private int size;
+    /** xPosition attribute. */
     private int xPosition;
+    /** yPosition attribute. */
     private int yPosition;
+    /** color attribute. */
     private String color;
+    /** isVisible attribute. */
     private boolean isVisible;
 
     /**
@@ -73,6 +78,7 @@ public class Square {
 
     /**
      * Move the square horizontally by 'distance' pixels.
+     * @param distance of type int.
      */
     public void moveHorizontal(int distance) {
         erase();
@@ -82,6 +88,7 @@ public class Square {
 
     /**
      * Move the square vertically by 'distance' pixels.
+     * @param distance of type int.
      */
     public void moveVertical(int distance) {
         erase();
@@ -91,6 +98,7 @@ public class Square {
 
     /**
      * Slowly move the square horizontally by 'distance' pixels.
+     * @param distance of type int.
      */
     public void slowMoveHorizontal(int distance) {
         int delta;
@@ -110,6 +118,7 @@ public class Square {
 
     /**
      * Slowly move the square vertically by 'distance' pixels.
+     * @param distance of type int.
      */
     public void slowMoveVertical(int distance) {
         int delta;
@@ -129,6 +138,7 @@ public class Square {
 
     /**
      * Change the size to the new size (in pixels). Size must be >= 0.
+     * @param newSize of type int.
      */
     public void changeSize(int newSize) {
         erase();
@@ -139,13 +149,14 @@ public class Square {
     /**
      * Change the color. Valid colors are "red", "yellow", "blue", "green",
      * "magenta" and "black".
+     * @param newColor of type String.
      */
     public void changeColor(String newColor) {
         color = newColor;
         draw();
     }
 
-    /*
+    /**
      * Draw the square with current specifications on screen.
      */
     private void draw() {
@@ -157,7 +168,7 @@ public class Square {
         }
     }
 
-    /*
+    /**
      * Erase the square on screen.
      */
     private void erase() {

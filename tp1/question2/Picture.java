@@ -16,13 +16,22 @@ import question1.Triangle;
  * @version 1.1 (24 May 2001)
  */
 public class Picture {
+    /** wall attribute.*/
     private Square wall;
+    /** window attribute.*/
     private Square window;
+    /** roof attribute.*/
     private Triangle roof;
+    /** sun attribute.*/
     private Circle sun;
+    /** sun2 attribute.*/
+    private Circle sun2;
+    
+    /** laTerreEstFixe attribut.*/
+    private boolean laTerreEstFixe;
 
     /**
-     * Constructor for objects of class Picture
+     * Constructor for objects of class Picture.
      */
     public Picture() {
         // nothing to do... instance variables are automatically set to null
@@ -50,15 +59,22 @@ public class Picture {
         roof.makeVisible();
 
         sun = new Circle();
-        sun.changeColor("yellow");
-        sun.moveHorizontal(180);
-        sun.moveVertical(-10);
+        sun.changeColor("blue");
+        sun.moveHorizontal(-10);
+        sun.moveVertical(-30);
         sun.changeSize(60);
         sun.makeVisible();
+        
+        sun2 = new Circle();
+        sun2.changeColor("yellow");
+        sun2.moveHorizontal(120);
+        sun2.moveVertical(-15);
+        sun2.changeSize(70);
+        sun2.makeVisible();
     }
 
     /**
-     * Change this picture to black/white display
+     * Change this picture to black/white display.
      */
     public void setBlackAndWhite() {
         if (wall != null) // only if it's painted already...
@@ -67,11 +83,12 @@ public class Picture {
             window.changeColor("white");
             roof.changeColor("black");
             sun.changeColor("black");
+            sun2.changeColor("black");
         }
     }
 
     /**
-     * Change this picture to use color display
+     * Change this picture to use color display.
      */
     public void setColor() {
         if (wall != null) // only if it's painted already...
@@ -79,8 +96,33 @@ public class Picture {
             wall.changeColor("red");
             window.changeColor("black");
             roof.changeColor("green");
-            sun.changeColor("yellow");
+            sun.changeColor("blue");
+            sun2.changeColor("yellow");
         }
     }
+    
+    /**
+     * la terre est fixe => le soleil se couche.
+     */
+    
+    public void setLaTerreEstFixe(){
+        if(!laTerreEstFixe){
+            laTerreEstFixe = true;
+            sun.slowMoveVertical(300);
+            sun2.slowMoveVertical(300);
+        }
+    }
+    
+    /**
+     * la terre n'est pas fixe => le soleil se leve.
+     */
+    
+    public void setLaTerreNEstPasFixe(){
+        if(laTerreEstFixe){
+            laTerreEstFixe = false;
+            sun.slowMoveVertical(-300);
+            sun2.slowMoveVertical(-300);
+        }
 
+}
 }

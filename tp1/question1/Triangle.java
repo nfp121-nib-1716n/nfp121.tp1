@@ -10,11 +10,17 @@ import java.awt.*;
  */
 
 public class Triangle {
+    /** height attribute. */
     private int height;
+    /** width attribute. */
     private int width;
+    /** xPosition attribute. */
     private int xPosition;
+    /** yPosition attribute. */
     private int yPosition;
+    /** color attribute. */
     private String color;
+    /** isVisible attribute. */
     private boolean isVisible;
 
     /**
@@ -75,6 +81,7 @@ public class Triangle {
 
     /**
      * Move the triangle horizontally by 'distance' pixels.
+     * @param distance of type int.
      */
     public void moveHorizontal(int distance) {
         erase();
@@ -84,6 +91,7 @@ public class Triangle {
 
     /**
      * Move the triangle vertically by 'distance' pixels.
+     * @param distance of type int.
      */
     public void moveVertical(int distance) {
         erase();
@@ -93,6 +101,7 @@ public class Triangle {
 
     /**
      * Slowly move the triangle horizontally by 'distance' pixels.
+     * @param distance of type int.
      */
     public void slowMoveHorizontal(int distance) {
         int delta;
@@ -112,6 +121,7 @@ public class Triangle {
 
     /**
      * Slowly move the triangle vertically by 'distance' pixels.
+     * @param distance of type int.
      */
     public void slowMoveVertical(int distance) {
         int delta;
@@ -131,6 +141,8 @@ public class Triangle {
 
     /**
      * Change the size to the new size (in pixels). Size must be >= 0.
+     * @param newHeight of type int.
+     * @param newWidth of type int.
      */
     public void changeSize(int newHeight, int newWidth) {
         erase();
@@ -142,13 +154,14 @@ public class Triangle {
     /**
      * Change the color. Valid colors are "red", "yellow", "blue", "green",
      * "magenta" and "black".
+     * @param newColor of type String.
      */
     public void changeColor(String newColor) {
         color = newColor;
         draw();
     }
 
-    /*
+    /**
      * Draw the triangle with current specifications on screen.
      */
     private void draw() {
@@ -162,7 +175,7 @@ public class Triangle {
         }
     }
 
-    /*
+    /**
      * Erase the triangle on screen.
      */
     private void erase() {

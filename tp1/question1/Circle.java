@@ -11,10 +11,15 @@ import java.awt.geom.*;
  */
 
 public class Circle {
+    /** diameter attribute. */
     private int diameter;
+    /** xPosition attribute. */
     private int xPosition;
+    /** yPosition attribute. */
     private int yPosition;
+    /** color attribute. */
     private String color;
+    /** isVisible attribute. */
     private boolean isVisible;
 
     /**
@@ -74,6 +79,7 @@ public class Circle {
 
     /**
      * Move the circle horizontally by 'distance' pixels.
+     * @param distance of type int.
      */
     public void moveHorizontal(int distance) {
         erase();
@@ -83,6 +89,7 @@ public class Circle {
 
     /**
      * Move the circle vertically by 'distance' pixels.
+     * @param distance of type int.
      */
     public void moveVertical(int distance) {
         erase();
@@ -92,6 +99,7 @@ public class Circle {
 
     /**
      * Slowly move the circle horizontally by 'distance' pixels.
+     * @param distance of type int.
      */
     public void slowMoveHorizontal(int distance) {
         int delta;
@@ -111,6 +119,7 @@ public class Circle {
 
     /**
      * Slowly move the circle vertically by 'distance' pixels.
+     * @param distance of type int.
      */
     public void slowMoveVertical(int distance) {
         int delta;
@@ -130,6 +139,7 @@ public class Circle {
 
     /**
      * Change the size to the new size (in pixels). Size must be >= 0.
+     * @param newDiameter of type int.
      */
     public void changeSize(int newDiameter) {
         erase();
@@ -140,13 +150,14 @@ public class Circle {
     /**
      * Change the color. Valid colors are "red", "yellow", "blue", "green",
      * "magenta" and "black".
+     * @param newColor of type String.
      */
     public void changeColor(String newColor) {
         color = newColor;
         draw();
     }
 
-    /*
+    /**
      * Draw the circle with current specifications on screen.
      */
     private void draw() {
@@ -158,7 +169,7 @@ public class Circle {
         }
     }
 
-    /*
+    /**
      * Erase the circle on screen.
      */
     private void erase() {
